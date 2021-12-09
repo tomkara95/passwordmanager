@@ -59,8 +59,7 @@ def clear_all_entry():
 
 def clear_all_call():
     new_e1.delete(0,END)
-    #new_user1.delete(0,END)
-    #new_pass1.delete(0,END)
+    
     
     
 
