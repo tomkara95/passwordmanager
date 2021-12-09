@@ -37,7 +37,7 @@ def call_apply():
     newval = (str(new_e1.get()) ,)
     mycursor.execute(newsql, newval)
     myresult = mycursor.fetchall()
-    for x in myresult:
+    '''for x in myresult:
         
             search_label = Label (user_name,text=x )
             search_label.pack()
@@ -45,7 +45,7 @@ def call_apply():
             errorlabel = Label (user_name,text="does not exists") 
             errorlabel.pack()   
     clear_all_call()
-
+'''
 
 def clear_all_entry():
     top = Toplevel()
