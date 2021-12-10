@@ -31,31 +31,36 @@ def Apply():
 
 
 def call_apply():
-    user_name= Tk()
-    user_name.title("username and password")
+    call_name= Tk()
+    call_name.title("username and password")
     newsql = "SELECT * FROM accounts WHERE webpage = %s "
     newval = (str(new_e1.get()) ,)
     mycursor.execute(newsql, newval)
     myresult = mycursor.fetchall()
-    '''for x in myresult:
-        
-            search_label = Label (user_name,text=x )
+    if myresult:
+        for i in myresult:
+            search_label = Label (call_name,text = i )
             search_label.pack()
-        except:
-            errorlabel = Label (user_name,text="does not exists") 
+    else:
+            errorlabel = Label (call_name,text="does not exists") 
             errorlabel.pack()   
     clear_all_call()
-'''
+
 
 def clear_all_entry():
-    top = Toplevel()
+    Apply = Tk()
+    Apply.title("New entry")
+    Apply.geometry('250x250')
+    global mylabel
+    mylabel = Label (Apply,text="New entry made successfully! " + " \n")
+    mylabel.grid(row=6,column=1)
+    global mylabelextra
+    mylabelextra = Label (Apply,text ="website : " + str(new_web.get()) + "\n" + "\n" + "username : " + str(new_user.get()) 
+    + "\n" + "\n" +  "password : " + str(new_pass.get())  )
+    mylabelextra.grid(row = 7 , column=1)
     new_web.delete(0,END)
     new_user.delete(0,END)
     new_pass.delete(0,END)
-    global mylabel
-    mylabel = Label (top,text="Entry made successfully")
-    mylabel.grid(row=6,column=1)
-    
 
 def clear_all_call():
     new_e1.delete(0,END)
